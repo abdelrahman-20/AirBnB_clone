@@ -26,9 +26,3 @@ class BaseModel():
         obj_dict["created_at"] = self.created_at.isoformat()
         obj_dict["updated_at"] = self.updated_at.isoformat()
         return obj_dict
-
-
-user = BaseModel()
-print(user.id)
-print(user.created_at)
-print(user.updated_at)
