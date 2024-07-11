@@ -28,7 +28,4 @@ class FileStorage:
         """Deserializes __objects From The JSON File"""
         if os.path.isfile(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r") as fp:
-                json_object = json.load(fp)
-                json_object = {k: self.classes()[v["__class__"]](**v)
-                               for k, v in json_object.items()}
-        self.__objects = json_object
+                FileStorage.__objects = json.load(fp)
