@@ -15,6 +15,9 @@ class HBNBCommand(cmd.Cmd):
         """Exit The Console."""
         return True
 
+    def emptyline(self):
+        return
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
