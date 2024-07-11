@@ -3,6 +3,7 @@
 
 import os
 import json
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -30,3 +31,9 @@ class FileStorage:
             return
         with open(FileStorage.__file_path, "r") as fp:
             FileStorage.__objects = json.load(fp)
+
+    def my_class_list(self):
+        classes = {
+            "BaseModel": BaseModel,
+        }
+        return classes
