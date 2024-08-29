@@ -14,6 +14,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """The Constructor Function of The Class."""
         if kwargs:
+            del kwargs["__class__"]
             for k, v in kwargs.items():
                 if k in ["created_at", "updated_at"]:
                     setattr(self, k, datetime.fromisoformat(v))
@@ -25,7 +26,6 @@ class BaseModel:
             self.updated_at = datetime.now()
             from models import storage
             storage.new(self)
-        del kwargs["__class__"]
 
     def save(self):
         self.updated_at = datetime.now()
