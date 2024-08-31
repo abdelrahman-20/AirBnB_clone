@@ -11,6 +11,7 @@ class BaseModel:
 
     def __init__(self):
         """Initialize Class Object Attributes"""
+
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = self.created_at
@@ -27,6 +28,7 @@ class BaseModel:
         object_dict["__class__"] = self.__class__.__name__
         object_dict["created_at"] = self.created_at.isoformat()
         object_dict["updated_at"] = self.created_at.isoformat()
+        return object_dict
 
     def __str__(self):
         cls_name = self.__class__.__name__
