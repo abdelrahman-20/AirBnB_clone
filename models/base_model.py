@@ -29,4 +29,5 @@ class BaseModel:
         object_dict["updated_at"] = self.created_at.isoformat()
 
     def __str__(self):
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+        cls_name = self.__class__.__name__
+        return "[{}] ({}) {}".format(cls_name, self.id, self.__dict__)
