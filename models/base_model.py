@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+
 """Base Model Class Module"""
 
-from datetime import datetime
 from uuid import uuid4
+from datetime import datetime
 
 
 class BaseModel:
@@ -19,8 +20,6 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        """A Method To Return A Dictionary of Object Attributes."""
-
         object_dict = self.__dict__.copy()
         for k, v in self.__dict__.items():
             object_dict[k] = v
@@ -30,5 +29,4 @@ class BaseModel:
         object_dict["updated_at"] = self.created_at.isoformat()
 
     def __str__(self):
-        """Return A Formatted Representation of The Class"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
